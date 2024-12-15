@@ -23,8 +23,8 @@ import { Input } from "@/components/ui/input";
 import { PasswordField } from "@/components/ui/password-input";
 import { toast } from "sonner";
 import { signUpSchema } from "@/schemas/auth.schema";
-import { useServerAction } from "@node_modules/zsa-react/dist/index.mjs";
 import { signUpAction } from "@/server/sign-up";
+import { useServerAction } from "zsa-react";
 
 export const SignUpForm = () => {
   const [formStep, setFormStep] = useState(0);
