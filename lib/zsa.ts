@@ -1,5 +1,5 @@
 import { env } from "@/env";
-import { createServerActionProcedure } from "zsa";
+import { createServerActionProcedure, ZSAError } from "zsa";
 import { verifyAuthentication } from "./session";
 
 function shapeErrors({ err }: any) {

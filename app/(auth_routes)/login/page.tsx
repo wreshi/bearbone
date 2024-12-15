@@ -4,7 +4,6 @@ import { fetchAuthenticatedUser } from "@/lib/session";
 import { redirect } from "next/navigation";
 import { getUserById } from "@/data-access/users";
 import { authenticatedUrl } from "@/constants";
-import Loading from "@/app/loading";
 
 export const metadata: Metadata = {
   title: "Login",

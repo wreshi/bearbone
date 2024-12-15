@@ -1,10 +1,7 @@
 "use client";
 
 import {
-  BadgeCheck,
-  Bell,
   ChevronsUpDown,
-  CreditCard,
   Loader,
   LogOut,
   Settings,
@@ -31,7 +28,7 @@ import { useState } from "react";
 import { toast } from "sonner";
 import { signOutAction } from "@/server/sign-out";
 import { useServerAction } from "zsa-react";
-import { UserWithWorkspaceAndProfile } from "@/types/entities";
+import { UserWithWorkspaceAndProfile } from "@/types/auth";
 
 export function UserButton({ user }: { user: UserWithWorkspaceAndProfile }) {
   const { isMobile } = useSidebar();

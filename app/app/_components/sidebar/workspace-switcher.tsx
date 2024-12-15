@@ -1,15 +1,13 @@
 "use client";
 
 import * as React from "react";
-import { CheckIcon, ChevronsUpDown, Hexagon, Plus } from "lucide-react";
+import { ChevronsUpDown } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuTrigger,
+  DropdownMenuLabel, DropdownMenuShortcut,
+  DropdownMenuTrigger
 } from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
@@ -24,9 +22,7 @@ import { useRouter } from "@/hooks/use-performance-router";
 import { Skeleton } from "@/components/ui/skeleton";
 import { setSelectedWorkspaceAction } from "@/server/workspaces";
 import { useServerAction } from "zsa-react";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { cn } from "@/utils/tailwind";
-import { decode } from "js-base64";
 import { decryptFromBase64URI } from "@/utils";
 
 export function WorkspaceSwitcher({

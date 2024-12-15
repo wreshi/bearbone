@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { Search, Home, Loader } from "lucide-react";
-import { UserWithWorkspaceAndProfile } from "@/types/entities";
+import { UserWithWorkspaceAndProfile } from "@/types/auth";
 import { UserButton } from "./user-button";
 import { WorkspaceSwitcher } from "./workspace-switcher";
 import {
