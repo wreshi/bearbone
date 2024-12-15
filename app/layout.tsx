@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 import { ViewTransitions } from "next-view-transitions";
 import React from "react";
-import { AppPostHogProvider } from "@/providers/third-party/posthog-provider";
+import { PostHogProvider } from "@/providers/third-party/posthog-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { CustomToaster } from "@/components/custom-toaster";
 
@@ -26,7 +26,7 @@ export default async function RootLayout({
   return (
     <ViewTransitions>
       <html lang="en">
-        <AppPostHogProvider>
+        <PostHogProvider>
           <body>
             <NuqsAdapter>
               <ThemeProvider
@@ -40,7 +40,7 @@ export default async function RootLayout({
               <CustomToaster position="bottom-right" richColors />
             </NuqsAdapter>
           </body>
-        </AppPostHogProvider>
+        </PostHogProvider>
       </html>
     </ViewTransitions>
   );
