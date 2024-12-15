@@ -15,7 +15,7 @@ import { validateRequest } from "@/lib/lucia";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "./_components/sidebar/app-sidebar";
 import { UserWithWorkspaceAndProfile } from "@/types/auth";
-import { Profile } from "@database/types";
+import { Profile } from "@/database/types";
 import { CommandPaletteProvider } from "@/providers/command-provider";
 import { CommandPalette } from "@/components/command-palette";
 import { Shortcuts } from "@/components/shortcuts";
