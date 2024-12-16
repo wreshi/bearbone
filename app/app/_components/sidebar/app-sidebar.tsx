@@ -39,10 +39,10 @@ export function AppSidebar({
   // Create a ref to track if the component is mounted
   const isMounted = React.useRef(false);
 
-  // Collect all routes that need to be prefetched
-  const allRoutes: string[] = ["/app/home"];
-
   const prefetchAllRoutes = React.useCallback(() => {
+    // Define routes inside the callback
+    const allRoutes = ["/app/home"];
+
     // Small delay to ensure we don't interfere with initial page load
     setTimeout(() => {
       allRoutes.forEach((route) => {
@@ -55,7 +55,7 @@ export function AppSidebar({
         setLoadedPathnames([pathname]);
       }
     }, 100);
-  }, [router, allRoutes, pathname, loadedPathnames]);
+  }, [router, pathname, loadedPathnames]);
 
   // Handle initial route prefetching
   React.useEffect(() => {

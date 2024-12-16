@@ -170,6 +170,14 @@ export async function createIdentity({
     .returning();
   return created;
 }
+
+export async function getProfile(userId: string) {
+  const profile = await db.query.profileTable.findFirst({
+    where: eq(profileTable.userId, userId),
+  });
+  return profile;
+}
+
 export async function updateProfile(userId: string, updates: Partial<Profile>) {
   const [updated] = await db
     .update(profileTable)

@@ -3,7 +3,6 @@ import { createServerAction } from "zsa";
 import { getUserById, updateUser } from "@/data-access/users";
 import { redirect } from "next/navigation";
 import { authenticatedUrl } from "@/constants";
-import { fetchAuthenticatedUser } from "@/lib/session";
 import { authenticatedAction } from "@/lib/zsa";
 
 export const setUserCheckoutAction = authenticatedAction

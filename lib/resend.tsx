@@ -11,7 +11,7 @@ export async function sendEmail(
   body: ReactNode,
 ) {
   const { error } = await resend.emails.send({
-    from: "Barebone <noreply@ascendifyr.in>",
+    from: "Bearbone <noreply@ascendifyr.in>",
     to: email,
     subject,
     react: <>{body}</>,

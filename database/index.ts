@@ -1,8 +1,10 @@
 import * as tables from "./tables";
 import * as relations from "./relations";
-import { drizzle } from "drizzle-orm/postgres-js";
+import { drizzle as drizzleDevelopment } from "drizzle-orm/postgres-js";
+import { drizzle as drizzleProduction } from "drizzle-orm/neon-http";
 import { env } from "@/env";
 import postgres from "postgres";
+import { neon } from "@neondatabase/serverless";
 
 // Determine the database URL based on the environment
 const databaseUrl =
@@ -11,7 +13,14 @@ const databaseUrl =
     : env.DATABASE_POSTGRES_URL;
 
 // Set up the SQL client depending on the environment
-const sql = postgres(databaseUrl);
+const sql =
+  env.NODE_ENV === "development" ? postgres(databaseUrl) : neon(databaseUrl);
 
 // Initialize the database with the appropriate drizzle function and schema
-export const db = drizzle(sql, { schema: { ...tables, ...relations } })
+export const db =
+  env.NODE_ENV === "development"
+    ? drizzleDevelopment(sql as any, { schema: { ...tables, ...relations } })
+    : drizzleProduction({
+        client: sql as any,
+        schema: { ...tables, ...relations },
+      });

@@ -7,27 +7,26 @@ import {
   afterVerifyUrl,
   unauthenticatedUrl,
 } from "@/constants";
-import { validateRequest } from "@/lib/lucia";
 import { SidebarItem } from "./_components/settings-sidebar-link";
 import { PageTitle } from "@/components/page-title";
+import { getAuth } from "@/lib/auth";
 
 export default async function ApplicationLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const validator = await validateRequest();
-  if (!validator.user) {
+  const {user} = await getAuth();
+  if (!user) {
     return redirect(unauthenticatedUrl);
   }
-  const dbUser = await getUserById(validator.user.id);
-  if (!dbUser) {
+  if (!user) {
     return redirect(unauthenticatedUrl);
   }
-  if (!dbUser.verifiedAt) {
+  if (!user.verifiedAt) {
     return redirect(afterSignUpUrl);
   }
-  if (!dbUser.onboardedAt) {
+  if (!user.onboardedAt) {
     return redirect(afterVerifyUrl);
   }
 
@@ -35,10 +34,6 @@ export default async function ApplicationLayout({
     <section className="flex h-screen min-h-screen w-full flex-col items-start p-5">
       <div className="flex flex-col gap-2">
         <PageTitle>settings</PageTitle>
-        {/* <p className="text-sm">
-          hey {dbUser.profile?.firstName}, here you can personalize and manage
-          your entire barebone experience.
-        </p> */}
       </div>
       <section className="grid h-full w-full grid-cols-[225px_1fr] gap-3 pt-4">
         <section className="flex h-full flex-col gap-0.5">

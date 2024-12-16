@@ -10,8 +10,8 @@ import { CustomToaster } from "@/components/custom-toaster";
 
 export const metadata: Metadata = {
   title: {
-    default: `Barebone${process.env.NODE_ENV === "development" ? " | Dev" : ""}`,
-    template: `%s | Barebone${process.env.NODE_ENV === "development" ? " | Dev" : ""}`,
+    default: `Bearbone${process.env.NODE_ENV === "development" ? " | Dev" : ""}`,
+    template: `%s | Bearbone${process.env.NODE_ENV === "development" ? " | Dev" : ""}`,
   },
   icons: {
     icon: "/assets/favicon.ico",

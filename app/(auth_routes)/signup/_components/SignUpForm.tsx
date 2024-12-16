@@ -90,7 +90,7 @@ export const SignUpForm = () => {
                           <Input
                             placeholder="name@example.com"
                             autoComplete="email"
-                            className="min-w-80"
+                            className="min-w-72"
                             disabled={isSubmitting}
                             {...field}
                           />

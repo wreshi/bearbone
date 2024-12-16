@@ -82,7 +82,7 @@ export const LoginForm = () => {
                         <Input
                           placeholder="Enter your email"
                           autoCapitalize="none"
-                          className="min-w-80"
+                          className="min-w-72"
                           autoComplete="email"
                           disabled={isSubmitting}
                           {...field}

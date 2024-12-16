@@ -1,6 +1,6 @@
 import { env } from "@/env";
 import { createServerActionProcedure, ZSAError } from "zsa";
-import { verifyAuthentication } from "./session";
+import { getAuth } from "./auth";
 
 function shapeErrors({ err }: any) {
   const isAllowedError = true;
@@ -23,7 +23,8 @@ function shapeErrors({ err }: any) {
 export const authenticatedAction = createServerActionProcedure()
   .experimental_shapeError(shapeErrors)
   .handler(async () => {
-    const user = await verifyAuthentication();
+    const { user } = await getAuth();
+    if (!user) throw new Error("You need to be logged in to access this content");
     return { user };
   });
 

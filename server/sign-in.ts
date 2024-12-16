@@ -2,7 +2,7 @@
 import { createServerAction } from "zsa";
 import { signInSchema } from "@/schemas/auth.schema";
 import { checkUserPassword } from "@/data-access/users";
-import { createSessionForUser } from "@/lib/session";
+import { createSessionForUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { unauthenticatedAction } from "@/lib/zsa";
 import { authenticatedUrl } from "@/constants";

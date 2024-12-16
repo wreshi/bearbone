@@ -10,7 +10,7 @@ import {
   recreateUser,
   updateUser,
 } from "@/data-access/users";
-import { createSessionForUser } from "@/lib/session";
+import { createSessionForUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { unauthenticatedAction } from "@/lib/zsa";
 import { afterSignUpUrl } from "@/constants";

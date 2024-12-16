@@ -14,6 +14,6 @@ export function Shortcuts() {
 
     document.addEventListener("keydown", down);
     return () => document.removeEventListener("keydown", down);
-  }, []);
+  }, [setCommandOpen]);
   return <></>;
 }
