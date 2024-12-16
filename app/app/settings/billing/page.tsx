@@ -2,7 +2,14 @@ import React from "react";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
 
-type Theme = "system" | "light" | "dark";
+export const metadata = {
+  title: {
+    default: "Billing",
+  },
+  icons: {
+    icon: "/assets/favicon.ico",
+  },
+};
 
 export default function BillingPage() {
   return (

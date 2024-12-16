@@ -10,8 +10,19 @@ import {
 import { SidebarItem } from "./_components/settings-sidebar-link";
 import { PageTitle } from "@/components/page-title";
 import { getAuth } from "@/lib/auth";
+import { Metadata } from "next";
 
-export default async function ApplicationLayout({
+export const metadata: Metadata = {
+  title: {
+    default: "Settings",
+    template: "%s | Settings | Bearbone",
+  },
+  icons: {
+    icon: "/assets/favicon.ico",
+  },
+};
+
+export default async function SettingsLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

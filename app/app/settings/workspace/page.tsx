@@ -21,7 +21,7 @@ import { decryptFromBase64URI } from "@/utils";
 
 export const metadata = {
   title: {
-    default: "workspace settings",
+    default: "Workspace",
   },
   icons: {
     icon: "/assets/favicon.ico",
@@ -90,7 +90,7 @@ const WorkspacePage = async () => {
 
             <AlertDialog>
               <AlertDialogTrigger className="flex w-full items-center justify-between rounded-md border border-red-200 p-3 text-sm font-medium text-red-600 transition-colors hover:bg-red-100/50 dark:border dark:text-red-500 dark:hover:bg-background">
-                <span>delete this workspace</span>
+                <span>Delete this workspace</span>
                 <Trash2 className="h-4 w-4" />
               </AlertDialogTrigger>
               <AlertDialogContent>

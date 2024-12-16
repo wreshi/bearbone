@@ -8,7 +8,7 @@ import { getAuth } from "@/lib/auth";
 
 export const metadata = {
   title: {
-    default: "Account settings",
+    default: "Account",
   },
   icons: {
     icon: "/assets/favicon.ico",
