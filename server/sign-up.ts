@@ -14,7 +14,7 @@ import { createSessionForUser } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { unauthenticatedAction } from "@/lib/zsa";
 import { afterSignUpUrl } from "@/constants";
-import { sendVerificationEmail } from "@/lib/mailers";
+import { sendVerificationEmail } from "@/emails/verification-email";
 
 export const signUpAction = unauthenticatedAction
   .createServerAction()

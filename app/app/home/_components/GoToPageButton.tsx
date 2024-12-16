@@ -1,6 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { useRouter } from "@/hooks/use-performance-router";
+import { useRouter } from "next/navigation";
 import {
   ArrowUpRight,
   Building,

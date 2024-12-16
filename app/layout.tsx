@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 import { ViewTransitions } from "next-view-transitions";
 import React from "react";
-import { PostHogProvider } from "@/providers/third-party/posthog-provider";
+import { PostHogProvider } from "@/providers/posthog-provider";
 import { ThemeProvider } from "@/providers/theme-provider";
 import { CustomToaster } from "@/components/custom-toaster";
 
@@ -36,8 +36,8 @@ export default async function RootLayout({
                 disableTransitionOnChange
               >
                 {children}
+                <CustomToaster position="bottom-right" richColors />
               </ThemeProvider>
-              <CustomToaster position="bottom-right" richColors />
             </NuqsAdapter>
           </body>
         </PostHogProvider>

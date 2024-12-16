@@ -10,13 +10,13 @@ import {
   Text,
   Button,
 } from "@react-email/components";
+import { sendEmail } from "@/lib/resend";
 
 interface VerificationEmailBodyProps {
   email: string;
   code: string;
 }
-
-export const VerificationEmailBody = ({
+const VerificationEmailBody = ({
   email,
   code,
 }: VerificationEmailBodyProps) => {
@@ -156,3 +156,18 @@ export const VerificationEmailBody = ({
     </Html>
   );
 };
+
+export async function sendVerificationEmail(email: string, code: string) {
+  try {
+    const res = await sendEmail(
+      email,
+      "Verify your Email Address",
+      <>
+        <VerificationEmailBody email={email} code={code} />
+      </>,
+    );
+    return res;
+  } catch (error) {
+    return error;
+  }
+}

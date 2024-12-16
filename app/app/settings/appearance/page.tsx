@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { useTheme } from "next-themes";
 import { LucideIcon, Monitor, Moon, Sun } from "lucide-react";
 

@@ -1,6 +1,6 @@
 import { relations } from "drizzle-orm";
-import { workspaceTable, workspaceUserTable } from "./schema/workspaces";
-import { profileTable, userTable } from "./schema/users";
+import { workspaceTable, workspaceUserTable } from "./workspaces";
+import { profileTable, userTable } from "./users";
 
 export const userTableRelations = relations(userTable, ({ one, many }) => ({
   workspaceUserTable: many(workspaceUserTable),

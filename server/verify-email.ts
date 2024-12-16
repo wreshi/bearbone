@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { authenticatedAction } from "@/lib/zsa";
 import { afterVerifyUrl } from "@/constants";
 import { getUserById, updateUser } from "@/data-access/users";
-import { sendVerificationEmail } from "@/lib/mailers";
+import { sendVerificationEmail } from "@/emails/verification-email";
 import { generateEmailVerifyCode } from "@/utils";
 
 export const verifyEmailAction = authenticatedAction

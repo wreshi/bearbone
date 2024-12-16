@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 
 type Theme = "system" | "light" | "dark";
 

@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/utils/tailwind";
+import { cn } from "@/utils";
 import {
   Building2,
   CircleUser,

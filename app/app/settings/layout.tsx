@@ -36,7 +36,7 @@ export default async function ApplicationLayout({
         <PageTitle>settings</PageTitle>
       </div>
       <section className="grid h-full w-full grid-cols-[225px_1fr] gap-3 pt-4">
-        <section className="flex h-full flex-col gap-0.5">
+        <section className="flex h-full flex-col gap-[0.2rem] -ml-1">
           <SidebarItem label="Account" />
           <SidebarItem label="Workspace" />
           <SidebarItem label="Billing" />

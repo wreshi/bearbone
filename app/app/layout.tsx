@@ -25,7 +25,7 @@ export default async function ApplicationLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const {user} = await getAuth();
+  const { user } = await getAuth();
   if (!user) {
     return redirect(unauthenticatedUrl);
   }

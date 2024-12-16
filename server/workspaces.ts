@@ -5,7 +5,6 @@ import { z } from "zod";
 import { cookies } from "next/headers";
 import { selectedWorkspaceCookie } from "@/constants";
 import { updateWorkspace } from "@/data-access/workspaces";
-import { encode, decode } from "js-base64";
 import { decryptFromBase64URI, encryptToBase64URI } from "@/utils";
 
 export const setSelectedWorkspaceAction = authenticatedAction

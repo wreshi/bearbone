@@ -1,7 +1,7 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import { useRouter } from "@/hooks/use-performance-router";
-import { cn } from "@/utils/tailwind";
+import { useRouter } from "next/navigation";
+import { cn } from "@/utils";
 import {
   updateProfileFirstNameAction,
   updateProfileLastNameAction,

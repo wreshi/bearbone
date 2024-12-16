@@ -11,7 +11,7 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { AlertCircle, Trash2, Settings, Shield, Building2 } from "lucide-react";
 import { SettingsTextField } from "../_components/settings-text-field";
 import { selectedWorkspaceCookie } from "@/constants";

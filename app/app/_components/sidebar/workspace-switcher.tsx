@@ -6,8 +6,9 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel, DropdownMenuShortcut,
-  DropdownMenuTrigger
+  DropdownMenuLabel,
+  DropdownMenuShortcut,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
@@ -15,15 +16,15 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Workspace } from "@/database/types";
 import { toast } from "sonner";
-import { useRouter } from "@/hooks/use-performance-router";
+import { useRouter } from "next/navigation";
 import { Skeleton } from "@/components/ui/skeleton";
 import { setSelectedWorkspaceAction } from "@/server/workspaces";
 import { useServerAction } from "zsa-react";
-import { cn } from "@/utils/tailwind";
+import { cn } from "@/utils";
 import { decryptFromBase64URI } from "@/utils";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export function WorkspaceSwitcher({
   workspaces,

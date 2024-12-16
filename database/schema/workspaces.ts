@@ -9,7 +9,6 @@ import {
 } from "drizzle-orm/pg-core";
 import { auth } from "./_schemas";
 import { userTable } from "./users";
-import { accountStatusesDefault, dealStagesDefault } from "./_defaults";
 
 const { table } = auth;
 
@@ -28,10 +27,6 @@ export const workspaceTable = table("workspaces", {
     .notNull()
     .references(() => userTable.id),
   metadata: jsonb("metadata"),
-  dealStages: jsonb("deal_stages").default(JSON.stringify(dealStagesDefault)),
-  accountStatuses: jsonb("account_statuses").default(
-    JSON.stringify(accountStatusesDefault),
-  ),
 });
 
 export const workspaceUserTable = table(

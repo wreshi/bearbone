@@ -1,5 +1,5 @@
 import * as tables from "./tables";
-import * as relations from "./relations";
+import * as relations from "./schema/_relations";
 import { drizzle as drizzleDevelopment } from "drizzle-orm/postgres-js";
 import { drizzle as drizzleProduction } from "drizzle-orm/neon-http";
 import { env } from "@/env";

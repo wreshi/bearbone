@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "@/components/ui/card";
-import { Link } from "next-view-transitions";
+import Link from "next/link";
 import { SettingsTextField } from "../_components/settings-text-field";
 import { User, Shield, IdCard, Loader } from "lucide-react";
 import { getProfile, getUserById } from "@/data-access/users";
@@ -16,10 +16,10 @@ export const metadata = {
 };
 
 async function AccountPage() {
-  const {user} = await getAuth();
+  const { user } = await getAuth();
   const userId = user?.id;
   if (!userId) return null;
-  
+
   const profile = await getProfile(userId);
 
   return (

@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Loader } from "lucide-react";
 import { toast } from "sonner";
-import Link from "@/components/performance-link";
 import { useServerAction } from "zsa-react";
 
 import {
@@ -21,13 +20,15 @@ import {
   Form,
   FormControl,
   FormField,
-  FormItem, FormMessage
+  FormItem,
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { PasswordField } from "@/components/ui/password-input";
 import { signInAction } from "@/server/sign-in";
 import { signInSchema } from "@/schemas/auth.schema";
 import { signUpUrl } from "@/constants";
+import Link from "next/link";
 
 export const LoginForm = () => {
   const { execute } = useServerAction(signInAction);
