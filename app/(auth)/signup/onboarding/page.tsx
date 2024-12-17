@@ -10,11 +10,8 @@ export const metadata: Metadata = {
 };
 
 const OnboardingPage = async () => {
-  const {user} = await getAuth();
-  if (
-    (user?.verifiedAt && user?.onboardedAt) ||
-    (user?.checkoutAt && user?.verifiedAt && user?.onboardedAt)
-  ) {
+  const { user } = await getAuth();
+  if (user?.onboardedAt) {
     return redirect(authenticatedUrl);
   }
   return <OnboardingForm />;

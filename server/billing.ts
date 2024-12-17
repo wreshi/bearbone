@@ -10,7 +10,6 @@ export const setUserCheckoutAction = authenticatedAction
   .handler(async ({ input, ctx }) => {
     const { user } = ctx;
     const updatedUser = await updateUser(user.id, {
-      checkoutAt: new Date(),
       updatedAt: new Date(),
     });
     if (!updatedUser) throw new Error("Couldn't set user as checked out");

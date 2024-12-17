@@ -14,9 +14,9 @@ export default async function CheckoutPage() {
   if (PADDLE_DOMAIN_APPROVED) {
     const {user} = await getAuth();
     if (!user) return redirect("/signup?redirecterror=nouser");
-    if (user && user.verifiedAt && user.onboardedAt && user.checkoutAt) {
-      return redirect(authenticatedUrl);
-    }
+    // if (user && user.verifiedAt && user.onboardedAt && user.checkoutAt) {
+    //   return redirect(authenticatedUrl);
+    // }
   }
 
   return (
