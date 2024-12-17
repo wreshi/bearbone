@@ -1,12 +1,10 @@
-import { db } from "@/database";
+import { db, Session, sessionTable, User, userTable } from "@/database";
 import { eq } from "drizzle-orm";
 import {
   encodeBase32LowerCaseNoPadding,
   encodeHexLowerCase,
 } from "@oslojs/encoding";
 import { sha256 } from "@oslojs/crypto/sha2";
-import { Session, User } from "@/database/types";
-import { sessionTable, userTable } from "@/database/tables";
 import { cookies } from "next/headers";
 import { authCookie, selectedWorkspaceCookie } from "@/constants";
 import { env } from "@/env";
@@ -104,7 +102,7 @@ export async function createSessionForUser(userId: string): Promise<void> {
 
 // Get Workspace ID for Authenticated User
 export async function getWorkspaceId(): Promise<string> {
-  const {user} = await getAuth();
+  const { user } = await getAuth();
   if (!user) throw new Error("You need to be logged in to access this content");
   const workspaceId =
     (await cookies()).get(selectedWorkspaceCookie)?.value ?? null;

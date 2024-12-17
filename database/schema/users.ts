@@ -1,10 +1,8 @@
 import {
   boolean,
-  jsonb,
-  pgSchema,
-  text,
+  jsonb, text,
   timestamp,
-  varchar,
+  varchar
 } from "drizzle-orm/pg-core";
 
 import { auth } from "./_schemas";

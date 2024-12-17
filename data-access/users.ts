@@ -1,12 +1,9 @@
 import "server-only";
-import { db } from "@/database";
-import { userTable } from "@/database/tables";
 import { compare, genSalt, hash } from "bcryptjs";
-import { Profile, User } from "@/database/types";
+import { db, identityTable, profileTable, userTable, type Profile, type User } from "@/database";
 import { eq } from "drizzle-orm";
 import { ulid } from "ulid";
 import { generateEmailVerifyCode } from "@/utils";
-import { identityTable, profileTable } from "@/database/schema/users";
 
 export async function getUserByEmail(email: string) {
   const user = await db.query.userTable.findFirst({

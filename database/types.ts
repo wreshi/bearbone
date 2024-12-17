@@ -1,4 +1,4 @@
-import * as tables from "./tables";
+import * as tables from ".";
 
 type User = typeof tables.userTable.$inferSelect;
 type Workspace = typeof tables.workspaceTable.$inferSelect;

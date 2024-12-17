@@ -1,10 +1,8 @@
 import "server-only";
-import { db } from "@/database";
-import { workspaceTable, workspaceUserTable } from "@/database/tables";
 import { eq, inArray } from "drizzle-orm";
 import { ulid } from "ulid";
 import { getUserById } from "./users";
-import { Workspace } from "@/database/types";
+import { db, workspaceTable, workspaceUserTable, type Workspace } from "@/database";
 
 export async function getWorkspaceById(id: string) {
   const workspace = await db.query.workspaceTable.findFirst({
