@@ -3,8 +3,6 @@ import { z } from "zod";
 
 export const env = createEnv({
   server: {
-    NODE_ENV: z.any(),
-    TZ: z.any(),
     DATABASE_POSTGRES_URL: z.string(),
     DATABASE_POSTGRES_URL_DEV: z.string(),
     RESEND_API_KEY: z.string(),
@@ -18,10 +16,8 @@ export const env = createEnv({
     DATABASE_POSTGRES_URL: process.env.DATABASE_POSTGRES_URL,
     RESEND_API_KEY: process.env.RESEND_API_KEY,
     DATABASE_POSTGRES_URL_DEV: process.env.DATABASE_POSTGRES_URL_DEV,
-    NODE_ENV: process.env.NODE_ENV,
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
-    TZ: process.env.TZ,
   },
 });

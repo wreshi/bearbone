@@ -3,12 +3,7 @@ import React, { Suspense } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { getProfile, getUserById } from "@/data-access/users";
-import {
-  afterCheckoutUrl,
-  afterSignUpUrl,
-  afterVerifyUrl,
-  unauthenticatedUrl,
-} from "@/constants";
+import { unauthenticatedUrl } from "@/constants";
 import { getAllUserWorkspaces } from "@/data-access/workspaces";
 import { selectedWorkspaceCookie } from "@/constants";
 import { getAuth } from "@/lib/auth";
@@ -26,21 +21,8 @@ export default async function ApplicationLayout({
   children: React.ReactNode;
 }>) {
   const { user } = await getAuth();
-  if (!user) {
-    return redirect(unauthenticatedUrl);
-  }
-  if (!user) {
-    return redirect(unauthenticatedUrl);
-  }
-  if (!user.verifiedAt) {
-    return redirect(afterSignUpUrl);
-  }
-  if (!user.checkoutAt) {
-    return redirect(afterVerifyUrl);
-  }
-  if (!user.onboardedAt) {
-    return redirect(afterCheckoutUrl);
-  }
+  if (!user) return redirect(unauthenticatedUrl);
+  if (!user.onboardedAt) return redirect("/signup/onboarding");
 
   const workspaces = await getAllUserWorkspaces(user.id);
   const profile = await getProfile(user.id);

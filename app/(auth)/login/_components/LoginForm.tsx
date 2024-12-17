@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { Loader } from "lucide-react";
+import { Loader2 } from "lucide-react";
 import { toast } from "sonner";
 import { useServerAction } from "zsa-react";
 
@@ -24,27 +24,28 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { PasswordField } from "@/components/ui/password-input";
-import { signInAction } from "@/server/sign-in";
-import { signInSchema } from "@/schemas/auth.schema";
-import { signUpUrl } from "@/constants";
+import { magicLinkAuthSchema } from "@/schemas/auth.schema";
+import { afterLoginUrl, signUpUrl } from "@/constants";
 import Link from "next/link";
+import { authenticateWithMagicLinkAction } from "@/server/magic-link";
+import { useRouter } from "next/navigation";
 
 export const LoginForm = () => {
-  const { execute } = useServerAction(signInAction);
+  const { execute } = useServerAction(authenticateWithMagicLinkAction);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const form = useForm<z.infer<typeof signInSchema>>({
-    resolver: zodResolver(signInSchema),
+  const router = useRouter();
+
+  const form = useForm<z.infer<typeof magicLinkAuthSchema>>({
+    resolver: zodResolver(magicLinkAuthSchema),
     defaultValues: {
       email: "",
-      password: "",
     },
   });
 
   const { handleSubmit, control, reset } = form;
 
-  const onSubmit = async (formData: z.infer<typeof signInSchema>) => {
+  const onSubmit = async (formData: z.infer<typeof magicLinkAuthSchema>) => {
     setIsSubmitting(true);
     const [data, err] = await execute(formData);
 
@@ -55,8 +56,12 @@ export const LoginForm = () => {
       setIsSubmitting(false);
       return;
     }
-    setIsSubmitting(false);
-    reset();
+    router.prefetch(afterLoginUrl)
+    setTimeout(() => {
+      setIsSubmitting(false);
+      router.push(afterLoginUrl);
+      form.reset();
+    }, 300);
   };
 
   return (
@@ -73,7 +78,7 @@ export const LoginForm = () => {
           </CardHeader>
           <CardContent>
             <Form {...form}>
-              <form className="grid gap-3" onSubmit={handleSubmit(onSubmit)}>
+              <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
                 <FormField
                   name="email"
                   control={control}
@@ -94,18 +99,11 @@ export const LoginForm = () => {
                   )}
                 />
 
-                <FormItem>
-                  <PasswordField placeholder="Enter your password" />
-                </FormItem>
-
-                <Button disabled={isSubmitting} type="submit" className="mt-2">
+                <Button disabled={isSubmitting} type="submit" className="w-full">
                   {isSubmitting ? (
-                    <span className="flex items-center gap-2">
-                      <Loader className="size-4 animate-spin" />
-                      Logging in...
-                    </span>
+                    <Loader2 className="size-4 animate-spin" />
                   ) : (
-                    "Log in"
+                    "Continue with Email"
                   )}
                 </Button>
 

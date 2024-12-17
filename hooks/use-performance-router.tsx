@@ -6,7 +6,6 @@ import { useTransitionRouter } from "next-view-transitions";
 declare global {
   interface Navigator {
     deviceMemory?: number;
-    lol: string;
   }
 }
 

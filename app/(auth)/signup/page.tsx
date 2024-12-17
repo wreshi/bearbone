@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default async function SignUpPage() {
   const {user} = await getAuth();
-  if (user && user.verifiedAt && user.onboardedAt && user.checkoutAt) {
+  if (user && user.onboardedAt) {
     return redirect(authenticatedUrl);
   }
   return (

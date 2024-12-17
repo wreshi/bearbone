@@ -102,7 +102,6 @@ export function SettingsTextField({
       <div className="flex w-full flex-col gap-0.5">
         {label !== "" && <span className="text-sm">{label}</span>}
         <Input
-          type={isHidden ? "password" : "text"}
           className={cn("w-full", isHidden && "!select-none")}
           readOnly={isNotEditable || isHidden}
           disabled={isNotEditable || isHidden || customDisabled}

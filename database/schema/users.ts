@@ -1,9 +1,4 @@
-import {
-  boolean,
-  jsonb, text,
-  timestamp,
-  varchar
-} from "drizzle-orm/pg-core";
+import { boolean, jsonb, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 import { auth } from "./_schemas";
 import { providerEnum } from "./_enums";
@@ -13,13 +8,6 @@ const { table } = auth;
 export const userTable = table("users", {
   id: text("id").primaryKey(),
   email: varchar("email", { length: 255 }).unique().notNull(),
-  encryptedPassword: varchar("encrypted_password"),
-  verificationCode: varchar("verification_code"),
-  verificationCodeSentAt: timestamp("verification_code_sent_at")
-    .notNull()
-    .defaultNow(),
-  verifiedAt: timestamp("verified_at"),
-  checkoutAt: timestamp("checkout_at"),
   onboardedAt: timestamp("onboarded_at"),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at"),
@@ -34,6 +22,16 @@ export const profileTable = table("profiles", {
   firstName: varchar("first_name", { length: 255 }),
   lastName: varchar("last_name", { length: 255 }),
   marketingConsent: boolean("marketing_consent").notNull().default(true),
+  createdAt: timestamp("created_at").notNull().defaultNow(),
+  updatedAt: timestamp("updated_at"),
+});
+
+export const magicLinkTable = table("magic_links", {
+  id: text("id").primaryKey(),
+  userId: text("user_id")
+    .notNull()
+    .references(() => userTable.id),
+  verificationToken: text("verification_token").notNull().unique(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
   updatedAt: timestamp("updated_at"),
 });

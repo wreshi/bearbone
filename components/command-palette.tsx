@@ -28,7 +28,7 @@ import {
   User,
 } from "lucide-react";
 import { signInUrl } from "@/constants";
-import { signOutAction } from "@/server/sign-out";
+import { logoutAction } from "@/server/log-out";
 import { useServerAction } from "zsa-react";
 
 interface CommandLink {
@@ -108,7 +108,7 @@ function CommandLink({ url, label, Icon, onClick }: CommandLinkProps) {
 export function CommandPalette() {
   const router = useRouter();
   const { commandOpen, setCommandOpen } = React.useContext(CommandContext);
-  const { execute: executeSignOut } = useServerAction(signOutAction);
+  const { execute: executeSignOut } = useServerAction(logoutAction);
   const [isLoggingOut, setIsLoggingOut] = React.useState(false);
 
   const handleCommand = React.useCallback(

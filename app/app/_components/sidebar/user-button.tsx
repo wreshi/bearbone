@@ -26,7 +26,7 @@ import {
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
-import { signOutAction } from "@/server/sign-out";
+import { logoutAction } from "@/server/log-out";
 import { useServerAction } from "zsa-react";
 import { UserWithWorkspaceAndProfile } from "@/types/auth";
 
@@ -34,7 +34,7 @@ export function UserButton({ user }: { user: UserWithWorkspaceAndProfile }) {
   const { isMobile } = useSidebar();
   const router = useRouter();
   const [loading, setLoading] = useState(false);
-  const { execute } = useServerAction(signOutAction);
+  const { execute } = useServerAction(logoutAction);
 
   async function handleSignOut() {
     setLoading(true);
@@ -45,11 +45,7 @@ export function UserButton({ user }: { user: UserWithWorkspaceAndProfile }) {
         return;
       }
       router.replace("/login");
-      toast.success("logged out successfully", {
-        position: "bottom-right",
-        duration: 2000,
-        richColors: false,
-      });
+      toast.success("Logged out successfully.");
     } catch (error) {
       // Handle error if necessary
     } finally {
