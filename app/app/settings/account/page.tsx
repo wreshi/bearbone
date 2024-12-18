@@ -61,7 +61,7 @@ async function AccountPage() {
       </div>
 
       {/* security section */}
-      <div className="flex flex-col gap-5 py-6 pt-3">``
+      <div className="flex flex-col gap-5 py-6 pt-3">
         <div className="flex items-center gap-2.5">
           <Shield className="h-4 w-4 text-muted-foreground" />
           <h2 className="text-sm font-medium text-muted-foreground">
