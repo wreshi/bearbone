@@ -31,8 +31,8 @@ export default async function SettingsLayout({
       <div className="flex flex-col gap-2">
         <PageTitle>Settings</PageTitle>
       </div>
-      <section className="grid h-full w-full grid-cols-[225px_1fr] gap-3 pt-4">
-        <section className="-ml-1 flex h-full flex-col gap-[0.2rem]">
+      <section className="grid h-full w-full gap-3 pt-4 sm:grid-cols-[225px_1fr] grid-rows-[min-content_1fr]">
+        <section className="-ml-1 flex h-full flex-col gap-[0.2rem] mb-4 sm:mb-0">
           <SidebarItem label="Account" />
           <SidebarItem label="Workspace" />
           <SidebarItem label="Billing" />

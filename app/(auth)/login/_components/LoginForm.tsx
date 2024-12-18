@@ -27,12 +27,19 @@ import { Input } from "@/components/ui/input";
 import { magicLinkAuthSchema } from "@/schemas/auth.schema";
 import { afterLoginUrl, signUpUrl } from "@/constants";
 import Link from "next/link";
-import { authenticateWithMagicLinkAction } from "@/server/magic-link";
+import {
+  authenticateWithMagicLinkAction,
+  sendMagicLinkAction,
+} from "@/server/magic-link";
 import { useRouter } from "next/navigation";
+import { sendMagicLink } from "@/emails/magic-link";
 
 export const LoginForm = () => {
   const { execute } = useServerAction(authenticateWithMagicLinkAction);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const { execute: executeSendMagicLink } =
+    useServerAction(sendMagicLinkAction);
 
   const router = useRouter();
 
@@ -44,6 +51,8 @@ export const LoginForm = () => {
   });
 
   const { handleSubmit, control, reset } = form;
+
+  const email = form.watch("email");
 
   const onSubmit = async (formData: z.infer<typeof magicLinkAuthSchema>) => {
     setIsSubmitting(true);
@@ -62,6 +71,7 @@ export const LoginForm = () => {
       router.push(afterLoginUrl);
       form.reset();
     }, 300);
+    await executeSendMagicLink({ email, url: data.url });
   };
 
   return (

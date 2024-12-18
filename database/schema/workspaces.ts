@@ -1,11 +1,8 @@
 import {
-  json,
-  jsonb,
-  pgSchema,
-  primaryKey,
+  jsonb, primaryKey,
   text,
   timestamp,
-  varchar,
+  varchar
 } from "drizzle-orm/pg-core";
 import { auth } from "./_schemas";
 import { userTable } from "./users";

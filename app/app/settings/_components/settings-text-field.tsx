@@ -10,6 +10,7 @@ import { updateSelectedWorkspaceNameAction } from "@/server/workspaces";
 import React from "react";
 import { toast } from "sonner";
 import { useServerAction } from "zsa-react";
+import { Label } from "@/components/ui/label";
 
 interface Props {
   label: string;
@@ -99,7 +100,7 @@ export function SettingsTextField({
 
   return (
     <section className="flex w-full flex-col gap-2.5">
-      <div className="flex w-full flex-col gap-0.5">
+      <div className="flex w-full flex-col gap-1.5">
         {label !== "" && <span className="text-sm">{label}</span>}
         <Input
           className={cn("w-full", isHidden && "!select-none")}

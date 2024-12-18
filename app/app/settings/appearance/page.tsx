@@ -106,7 +106,7 @@ const AppearancePage = () => {
       </div>
 
       {/* Theme Options Section */}
-      <div className="flex justify-around gap-4 py-8">
+      <div className="flex justify-around gap-4 py-8 flex-col sm:flex-row">
         <div
           className="w-full cursor-pointer"
           onClick={() => setTheme("system")}

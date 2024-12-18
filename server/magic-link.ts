@@ -16,6 +16,21 @@ import { afterLoginUrl, afterSignUpUrl, authCookie } from "@/constants";
 import { env } from "@/env";
 import { z } from "zod";
 import { cookies } from "next/headers";
+import { sendVerificationEmail } from "@/emails/verification";
+import { sendMagicLink } from "@/emails/magic-link";
+import { url } from "inspector";
+
+export const sendMagicLinkAction = unauthenticatedAction
+  .createServerAction()
+  .input(z.object({ email: z.string(), url: z.string() }))
+  .output(z.object({ success: z.boolean() }))
+  .handler(async ({ input }) => {
+    const { email, url } = input;
+    const res = await sendMagicLink(email, url);
+    return {
+      success: true,
+    };
+  });
 
 export const authenticateWithMagicLinkAction = unauthenticatedAction
   .createServerAction()
@@ -23,6 +38,7 @@ export const authenticateWithMagicLinkAction = unauthenticatedAction
   .output(
     z.object({
       type: z.enum(["login", "signup"]),
+      url: z.string(),
     }),
   )
   .handler(async ({ input }) => {
@@ -37,26 +53,22 @@ export const authenticateWithMagicLinkAction = unauthenticatedAction
       if (!createdMagicLink.verificationToken) {
         throw new Error("Couldn't create magic link. Unable to sign up.");
       }
-      console.log(
-        env.NEXT_PUBLIC_URL +
-          "/magic-link/" +
-          createdMagicLink.verificationToken,
-      );
+      const url =
+        env.NEXT_PUBLIC_URL + "/magic-link/" + createdMagicLink.verificationToken;
       return {
         type: "signup",
+        url: url,
       };
     } else {
       const createdMagicLink = await createMagicLink(user.id);
       if (!createdMagicLink.verificationToken) {
         throw new Error("Couldn't create magic link. Unable to sign up.");
       }
-      console.log(
-        env.NEXT_PUBLIC_URL +
-          "/magic-link/" +
-          createdMagicLink.verificationToken,
-      );
+      const url =
+        env.NEXT_PUBLIC_URL + "/magic-link/" + createdMagicLink.verificationToken;
       return {
         type: "login",
+        url: url,
       };
     }
   });
