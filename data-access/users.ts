@@ -43,7 +43,6 @@ export async function createUser(email: string) {
   return user;
 }
 
-
 export async function updateUser(userId: string, updates: Partial<User>) {
   const [updated] = await db
     .update(userTable)

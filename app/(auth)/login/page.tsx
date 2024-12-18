@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default async function SignInPage() {
-  const {user} = await getAuth();
+  const { user } = await getAuth();
   if (user) {
     return redirect(authenticatedUrl);
   }

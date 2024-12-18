@@ -8,7 +8,7 @@ export default async function HomePage() {
       <div className="flex select-none flex-row items-center justify-between">
         <PageTitle>Home</PageTitle>
         <div className="flex flex-row gap-2">
-          <Button variant={"outline"} className="h-8 flex items-center gap-2">
+          <Button variant={"outline"} className="flex h-8 items-center gap-2">
             <ExpandingIndicator />
             Write feedback
           </Button>

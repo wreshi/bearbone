@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default async function CheckoutPage() {
   const PADDLE_DOMAIN_APPROVED = false;
   if (PADDLE_DOMAIN_APPROVED) {
-    const {user} = await getAuth();
+    const { user } = await getAuth();
     if (!user) return redirect("/signup?redirecterror=nouser");
     // if (user && user.verifiedAt && user.onboardedAt && user.checkoutAt) {
     //   return redirect(authenticatedUrl);

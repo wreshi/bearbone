@@ -56,7 +56,7 @@ export const LoginForm = () => {
       setIsSubmitting(false);
       return;
     }
-    router.prefetch(afterLoginUrl)
+    router.prefetch(afterLoginUrl);
     setTimeout(() => {
       setIsSubmitting(false);
       router.push(afterLoginUrl);
@@ -99,7 +99,11 @@ export const LoginForm = () => {
                   )}
                 />
 
-                <Button disabled={isSubmitting} type="submit" className="w-full">
+                <Button
+                  disabled={isSubmitting}
+                  type="submit"
+                  className="w-full"
+                >
                   {isSubmitting ? (
                     <Loader2 className="size-4 animate-spin" />
                   ) : (

@@ -6,6 +6,7 @@ export const env = createEnv({
     DATABASE_POSTGRES_URL: z.string(),
     DATABASE_POSTGRES_URL_DEV: z.string(),
     RESEND_API_KEY: z.string(),
+    DODO_API_KEY: z.string(),
   },
   client: {
     NEXT_PUBLIC_URL: z.string(),
@@ -19,5 +20,6 @@ export const env = createEnv({
     NEXT_PUBLIC_URL: process.env.NEXT_PUBLIC_URL,
     NEXT_PUBLIC_POSTHOG_KEY: process.env.NEXT_PUBLIC_POSTHOG_KEY,
     NEXT_PUBLIC_POSTHOG_HOST: process.env.NEXT_PUBLIC_POSTHOG_HOST,
+    DODO_API_KEY: process.env.DODO_API_KEY,
   },
 });

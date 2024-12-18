@@ -1,5 +1,5 @@
 "use client";
-import {env} from "@/env";
+import { env } from "@/env";
 import posthog from "posthog-js";
 import { PostHogProvider as PGP } from "posthog-js/react";
 import { useEffect } from "react";

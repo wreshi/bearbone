@@ -24,7 +24,8 @@ export const authenticatedAction = createServerActionProcedure()
   .experimental_shapeError(shapeErrors)
   .handler(async () => {
     const { user } = await getAuth();
-    if (!user) throw new Error("You need to be logged in to access this content");
+    if (!user)
+      throw new Error("You need to be logged in to access this content");
     return { user };
   });
 

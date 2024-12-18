@@ -89,7 +89,7 @@ export function WorkspaceSwitcher({
             {isSidebarOpen || isMobile ? (
               <SidebarMenuButton
                 className={cn(
-                  "data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground mx-1 mb-0 w-[97%] rounded-lg border px-3 py-4",
+                  "mx-1 mb-0 w-[97%] rounded-lg border px-3 py-4 data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground",
                 )}
               >
                 <div className="grid flex-1 text-left text-sm leading-tight">

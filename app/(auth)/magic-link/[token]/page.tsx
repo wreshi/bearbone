@@ -51,8 +51,8 @@ export default function MagicLinkPage() {
   }, [execute, params.token, router]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center ">
-      <Card className="w-fit border-2 border-primary/10 shadow-lg px-8">
+    <main className="flex min-h-screen flex-col items-center justify-center">
+      <Card className="w-fit border-2 border-primary/10 px-8 shadow-lg">
         <CardHeader className="flex flex-col items-center space-y-4 pb-2">
           {status === "loading" && (
             <Loader2

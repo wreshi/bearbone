@@ -23,7 +23,7 @@ export default async function LoginLinkSent() {
         <div className="px-4">
           <CardHeader className="flex flex-col items-center space-y-2">
             <CheckCircle className="h-12 w-12 text-green-500 animate-in zoom-in" />
-            <CardTitle className="text-center text-2xl font-bold ">
+            <CardTitle className="text-center text-2xl font-bold">
               Login Link Sent!
             </CardTitle>
           </CardHeader>

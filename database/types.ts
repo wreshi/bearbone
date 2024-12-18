@@ -8,4 +8,12 @@ type WorkspaceUser = typeof tables.workspaceUserTable.$inferSelect;
 type Identity = typeof tables.identityTable.$inferSelect;
 type MagicLink = typeof tables.magicLinkTable.$inferSelect;
 
-export type { User, Workspace, Profile, Session, WorkspaceUser, Identity, MagicLink };
+export type {
+  User,
+  Workspace,
+  Profile,
+  Session,
+  WorkspaceUser,
+  Identity,
+  MagicLink,
+};

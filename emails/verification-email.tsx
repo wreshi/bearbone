@@ -16,10 +16,7 @@ interface VerificationEmailBodyProps {
   email: string;
   code: string;
 }
-const VerificationEmailBody = ({
-  email,
-  code,
-}: VerificationEmailBodyProps) => {
+const VerificationEmailBody = ({ email, code }: VerificationEmailBodyProps) => {
   return (
     <Html>
       <Head>
