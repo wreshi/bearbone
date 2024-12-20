@@ -1,4 +1,5 @@
 import {
+  boolean,
   jsonb, primaryKey,
   text,
   timestamp,
@@ -33,6 +34,7 @@ export const billingTable = table("billing", {
     .references(() => workspaceTable.id),
   customerId: text("customer_id"),
   subscriptionId: text("subscription_id"),
+  isFreeTrial: boolean("is_free_trial").notNull().default(true),
   billingCity: text("billing_city"),
   billingCountry: text("billing_country"),
   billingState: text("billing_state"),
